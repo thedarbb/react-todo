@@ -43,7 +43,6 @@ describe('Reducers', () => {
         id: 123,
         text: 'some text',
         completed: true,
-        create: 123,
         createdAt: 123,
         completedAt: 124
       }];
