@@ -89,6 +89,17 @@ describe('Actions', () => {
     expect(response).toEqual(action);
   });
 
+  it('should dispatch LOGIN action', () => {
+    var action = {
+      type: 'LOGIN',
+      uid: '12345'
+    };
+
+    var response = actions.login(action.uid);
+
+    expect(response.uid).toEqual(action.uid);
+  });
+
   describe('Tests with firebase todos', () => {
     var testTodoRef;
 

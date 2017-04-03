@@ -85,4 +85,19 @@ describe('Reducers', () => {
       expect(response[0]).toEqual(todos[0]);
     });
   });
+
+  describe('authReducer', () => {
+    it('should clear user info', () => {
+      var user = {
+        uid: 1234
+      };
+      var action = {
+        type: 'LOUGOUT'
+      };
+      var response = reducers.authReducer(df([]), df(action));
+
+      expect(response.length).toEqual(0);
+      expect(response.uid).toNotExist();
+    });
+  });
 });
