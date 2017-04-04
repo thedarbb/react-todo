@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import firebase, {firebaseRef, githubProvider} from 'app/firebase/';
+import firebase, {firebaseRef, facebookAuthProvider} from 'app/firebase/';
 
 export var setSearchText = (searchText) => {
   return {
@@ -85,6 +85,7 @@ export var updateTodo = (id, updates) => {
 export var startToggleTodo = (id, completed) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
+    console.log(uid);
     var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
     var updates = {
       completed,
@@ -99,7 +100,7 @@ export var startToggleTodo = (id, completed) => {
 
 export var startLogin = () => {
   return (dispatch, getState) => {
-    return firebase.auth().signInWithPopup(githubProvider).then((result) => {
+    return firebase.auth().signInWithPopup(facebookAuthProvider).then((result) => {
     }, (error) => {
       console.log(('Auth failed', error));
     });

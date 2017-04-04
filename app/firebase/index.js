@@ -14,6 +14,6 @@ try {
   console.log(e);
 }
 
-export var githubProvider = new firebase.auth.GithubAuthProvider();
+export var facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 export var firebaseRef = firebase.database().ref();
 export default firebase;
