@@ -49,8 +49,6 @@ export var startAddTodos = () => {
     var todosRef = firebaseRef.child(`users/${uid}/todos`);
 
     return todosRef.once('value').then((snapshot) => {
-      console.log('Value: ', snapshot.val());
-
       var todos = snapshot.val() || {};
       var parsedTodos = [];
 
@@ -102,7 +100,6 @@ export var startToggleTodo = (id, completed) => {
 export var startLogin = () => {
   return (dispatch, getState) => {
     return firebase.auth().signInWithPopup(githubProvider).then((result) => {
-      console.log('Auth worked', result);
     }, (error) => {
       console.log(('Auth failed', error));
     });
@@ -110,7 +107,6 @@ export var startLogin = () => {
 };
 
 export var login = (uid) => {
-  console.log(uid);
   return {
     type: 'LOGIN',
     uid
