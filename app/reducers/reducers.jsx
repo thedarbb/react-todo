@@ -47,7 +47,7 @@ export var showCompletedReducer = (state = false, action) => {
   }
 };
 
-export var authReducer = (state = [], action) => {
+export var authReducer = (state = {}, action) => {
   switch (action.type){
     case 'LOGIN':
       return {

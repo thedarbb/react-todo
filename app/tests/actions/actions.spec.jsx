@@ -89,7 +89,7 @@ describe('Actions', () => {
     expect(response).toEqual(action);
   });
 
-  it('should dispatch LOGIN action', () => {
+  it('should generate LOGIN action', () => {
     var action = {
       type: 'LOGIN',
       uid: '12345'
@@ -97,7 +97,17 @@ describe('Actions', () => {
 
     var response = actions.login(action.uid);
 
-    expect(response.uid).toEqual(action.uid);
+    expect(response).toEqual(action);
+  });
+
+  it('should generate LOGOUT action', () => {
+    var action = {
+      type: 'LOGOUT'
+    };
+
+    var response = actions.logout();
+
+    expect(response).toEqual(action);
   });
 
   describe('Tests with firebase todos', () => {
